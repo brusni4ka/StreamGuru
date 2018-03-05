@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "rimraf ./dist && babel -d ./dist ./src -s && node ./dist/index.js",
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon ./dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint-staged": "lint-staged"
   },
@@ -37,7 +37,10 @@
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
     "koa": "^2.0.0-alpha.8",
-    "rimraf": "^2.6.2"
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.4.0",
+    "rimraf": "^2.6.2",
+    "sequelize": "^4.35.2"
   },
   "babel": {
     "presets": [
