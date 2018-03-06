@@ -1,15 +1,13 @@
-import User from './models/user.js';
+const { user } = require("./../models")
 
-const createUser = (userData) => {
-    User.create(userData);
-}
+exports.createUser = (userData) =>
+    user.findOrCreate({ where: { login: userData.login }, defaults: userData })
+        .spread((userObj, created) =>
+            created ? userObj.get({ plain: true }) : created
+        )
 
-const findUser = () => {
-    User.findOne({
-        where: {login: 'aProject'},
-        attributes: ['id', ['name', 'title']]
-    }).then(project => {
-        // project will be the first entry of the Projects table with the title 'aProject' || null
-        // project.title will contain the name of the project
+
+exports.findUser = (userData) =>
+    user.findOne({
+        where: { login: userData.login }
     })
-}

@@ -1,0 +1,8 @@
+1) sudo npm i -g sequelize-cli
+2) Before running npm install, please run "npm install bcrypt" first
+
+
+FOR MIGRATION
+
+1) cd src
+2) sequelize db:migrate
