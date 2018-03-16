@@ -7,6 +7,7 @@ const { verifyToken } = require("./middlewares/verifyToken")
 const PORT = process.env.PORT || 8080
 const app = new Koa()
 const router = new Router()
+require('./socket');
 
 
 router.post("/auth", auth.auth)
@@ -23,4 +24,5 @@ app.use(router.routes()).use(router.allowedMethods())
 app.listen(PORT, () => {
     console.log(`Starting server on ${PORT}`)
 })
+
 
