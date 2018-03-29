@@ -18,7 +18,7 @@ router.post("/logout", auth.logout)
 app.context.secrets = require("./config/secrets")
 
 app.use(bodyParser())
-app.use(verifyToken)
+//app.use(verifyToken)
 app.use(router.routes()).use(router.allowedMethods())
 
 app.listen(PORT, () => {

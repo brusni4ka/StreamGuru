@@ -10,9 +10,6 @@ wss.on('connection', function(socket) {
   clients.push(socket)
 
   // Send data back to the client
-  const json = JSON.stringify({ message: 'Gotcha' });
-  socket.send(json);
-
   // When data is received
   socket.on('message', function(message) {
     //Save to DB
@@ -22,11 +19,7 @@ wss.on('connection', function(socket) {
     //   client.send(json);
     //   console.log('Sent: ' + json);
     // });
-    wss.clients
-      .forEach(client => {
-        client.send(`Hello, broadcast message -> ${message}`);
-      });
-
+    wss.broadcast(message, socket);
     console.log('Received: ' + message);
   });
 

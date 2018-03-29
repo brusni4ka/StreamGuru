@@ -24,9 +24,6 @@ export const ScreenRecord = (function () {
         mediaRecorder = new MediaRecorder(videoStream, {
           mimeType: 'video/webm'
         });
-        mediaStream = new MediaStream(videoStream);
-        mediaStream.ontrack =
-
         mediaRecorder.ondataavailable = videoDataHandler(onDataHandler)
       })
       .catch((err) => {

@@ -79,6 +79,8 @@
           awesome-vue
         </a>
       </li>
+
+      <router-link :to="generateHashedUrl">Go to CHAT</router-link>
     </ul>
   </div>
 </template>
@@ -89,6 +91,12 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    generateHashedUrl() {
+      const hash = Math.floor(Math.random() * 0xFFFFFF).toString(16);
+      return `/chat#${hash}`
     }
   }
 }
